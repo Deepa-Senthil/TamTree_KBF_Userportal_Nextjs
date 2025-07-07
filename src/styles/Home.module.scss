@@ -1,118 +1,105 @@
-@use 'variables' as *;
+
+@use './variables' as *;
+
 .navbar {
-    background: $primary-color;
-    color: white;
-    position: relative;
-    z-index: 10;
-  
-    // Use your logo font here
-    font-family: 'Helvetica', sans-serif;
-  }
-  
-  .top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-  }
-  
-  .logo img {
-    width: 60px;
-    height: 60px;
+  background: $primary-color;
+  color: white;
+  font-family: 'helvertica', sans-serif;
+  position: relative;
+  z-index: 10;
+}
+
+// Top bar: logo, title & phone, search, cart
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  margin-right: 0.75rem;
+  img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
   }
-  
-  .brand span {
-    font-size: 1.5rem;
-    font-family: "kathir-Logo-Food", sans-serif;
-  }
-  
-  .icons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .iconBtn {
-    background: none;
-    border: none;
+}
+.title {
+  font-family: 'a-alley-garden', cursive;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+.phone {
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: white;
+  a {
     color: white;
-    font-size: 1.5rem;
-    margin-left: 1rem;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// Search box
+.search-box {
+    // flex: 0 0 auto;       // prevent growing
+    width: 500px;         // or whatever fixed width you like
     position: relative;
+
+  input {
+    width: 100%;
+    padding: 0.9rem 3rem 0.9rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  .icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
   }
-  
+}
+
+// Cart icon
+.cart {
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
   .badge {
-    background: #ffd601;
+    background: $button-color;
     color: black;
     border-radius: 50%;
     padding: 0 6px;
     font-size: 0.75rem;
+    text-decoration: none;
     position: absolute;
     top: -6px;
-    right: -6px;
+    right: -10px;
   }
-  
-  .navLinks {
-    background: #014421;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    ul {
-      list-style: none;
-      padding: 0.5rem 1rem;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-  
-      li {
-        margin: 0.5rem 0;
-        a {
-          color: white;
-          text-decoration: none;
-          font-size: 1.1rem;
-          font-family: "kathir-Logo-Food", sans-serif;
-          &:hover { color: #ffd601; }
-        }
-        &.active a {
-          color: #ffd601;
-        }
-      }
-    }
+}
+
+// Bottom nav (if you need it)
+.navLinks {
+  background: $secondary-color;
+  display: flex;
+  justify-content: left;
+  padding: 0.75rem 0;
+  a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-family: 'a-alley-garden', cursive;
+    font-size: 1.75rem;
+    &:hover { color: $footer-heading; }
+    &.active { color:$footer-heading; }
   }
-  
-  // open state for mobile menu
-  .navLinks.open {
-    max-height: 300px; // enough to show all links
-  }
-  
-  // Overlays & Drawers
-  .overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-  }
-  
-  .drawer {
-    position: fixed;
-    top: 10%;
-    right: 0;
-    width: 80%;
-    max-width: 320px;
-    background: white;
-    height: 80%;
-    padding: 1rem;
-    overflow-y: auto;
-    border-radius: 4px;
-  }
-  
-  .closeBtn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    position: absolute;
-    top: 0.5rem; right: 0.5rem;
-    cursor: pointer;
-  }
-  
+}
