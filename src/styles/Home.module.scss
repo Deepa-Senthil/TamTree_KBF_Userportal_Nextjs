@@ -1,8 +1,12 @@
+@use 'variables' as *;
 .navbar {
-    background: #7f1734;
+    background: $primary-color;
     color: white;
     position: relative;
     z-index: 10;
+  
+    // Use your logo font here
+    font-family: 'Helvetica', sans-serif;
   }
   
   .top {
