@@ -29,27 +29,34 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Cart icon visible on all views */}
-        <Link href="/cart" className={styles.cart}>
-          🛒
-        </Link>
+        {/* Search and Cart Group (Desktop) */}
+        <div className={styles["search-cart-group"]}>
+          <div className={styles["search-box"]}>
+            <input type="search" placeholder="Search Products" />
+            <span className={styles.icon}>🔍</span>
+          </div>
+          <Link href="/cart" className={styles.cart}>
+            🛒
+          </Link>
+        </div>
 
-        {/* Mobile-specific icons */}
+        {/* Mobile Icons (Search, Cart, Hamburger) */}
         <div className={styles.mobileIcons}>
           <span className={styles["mobile-search"]}>🔍</span>
-          <button className={styles.hamburger} onClick={toggleNav}>
+          <Link href="/cart" className={styles.cart}>
+            🛒
+          </Link>
+          <button
+            className={styles.hamburger}
+            onClick={toggleNav}
+            aria-label="Menu"
+          >
             ☰
           </button>
         </div>
-
-        {/* Desktop search box */}
-        <div className={styles["search-box"]}>
-          <input type="search" placeholder="Search Products" />
-          <span className={styles.icon}>🔍</span>
-        </div>
       </div>
 
-      {/* Navigation links */}
+      {/* Navigation Links */}
       <nav className={`${styles.navLinks} ${navOpen ? styles.open : ""}`}>
         {[
           { href: "/", label: "Home" },
