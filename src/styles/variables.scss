@@ -1,6 +1,21 @@
-$primary-color: #048c4f;
-$secondary-color: #69b650;
-$secondary-color-light: #a3d293;
-$black-font: #373435;
-$sub-heading: #FF6868;
-$sage-green: #E6EFE9;
+$primary-color: rgb(127, 23, 52);
+$secondary-color: rgb(1, 68, 33);
+$secondary-color-light: rgb(147, 193, 77);
+$button-color: rgb(255, 124, 0);
+$footer-heading: rgb(255, 214, 1);
+
+@font-face {
+    font-family: 'a-alley-garden';
+    src: url('/asset/fonts/a_alley_garden/aAlleyGarden.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'helvertica';
+    src: url('/asset/fonts/helvetica-255-cufonfonts/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
