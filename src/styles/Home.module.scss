@@ -274,7 +274,6 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  // padding-bottom: 1rem;
 }
 
 .footerSection {
@@ -307,7 +306,6 @@
   height: 100px;
   width: 100px;
   object-fit: cover;
-  // margin-bottom: 10px;
 }
 
 .fssaiText {
@@ -352,34 +350,28 @@
 
 .footerBottom {
   text-align: left;
-  // padding-top: 10px;
-  font-size: 13px;
+  font-size: 15px;
   opacity: 0.7;
   font-family: 'helvetica', sans-serif;
 }
 
-// .divider {
-//   background-color: rgba(255, 255, 255, 0.3);
-//   height: 1px;
-//   margin: 20px 0;
-// }
+/* Vertical borders between columns — Only for desktop */
+@media (min-width: 769px) {
+  .footerContainer > div:not(:last-child) {
+    position: relative;
+    padding-right: 20px;
 
-/* Vertical borders between columns */
-.footerContainer > div:not(:last-child) {
-  position: relative;
-  padding-right: 20px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50px; // Adjust this to control top spacing
-    right: 0;
-    height: 60%; // Divider height (reduce to shorten it)
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.7);
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50px;
+      right: 0;
+      height: 60%;
+      width: 1px;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
   }
 }
-
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
@@ -389,12 +381,17 @@
 
   .footerContainer {
     grid-template-columns: 1fr;
+    gap: 1rem; // Reduced gap between columns
   }
 
   .footerContainer > div {
-    border-right: none;
+    border-right: none !important;
     padding-right: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: -2rem; // Reduced spacing between sections
+  }
+
+  .footerContainer > div::after {
+    display: none !important; // Hides vertical divider on mobile
   }
 
   .footerBottom {
@@ -405,4 +402,5 @@
     margin-bottom: 10px;
   }
 }
+
 
