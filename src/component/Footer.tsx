@@ -1,4 +1,4 @@
-"use client"; // Mark this as a Client Component
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -15,7 +15,6 @@ const Footer = () => {
     { label: "Herbal Products", path: "/featuredcategories" },
   ];
 
-  // Function to handle navigation and scroll to top
   const handleNavigation = (path: string) => {
     router.push(path);
     window.scrollTo(0, 0);
@@ -24,29 +23,26 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
-        {/* Support Section */}
+        {/* Brand Logo and FSSAI */}
         <div className={styles.footerSection}>
           <h5 className={styles.footerHeading}>Kathir Baby Foods</h5>
-
-          {/* Logo and FSSAI Number (Stacked) */}
           <div className={styles.logoContainer}>
             <div className={styles.logoWrapper}>
               <Link href="/contactus" scroll={true}>
                 <Image
                   src="/asset/images/kbf-logo.jpg"
                   alt="Kathir Baby Foods Logo"
-                  width={150}
-                  height={150}
+                  width={100}
+                  height={100}
                   className={styles.logoImage}
                 />
               </Link>
-
               <p className={styles.fssaiText}>FSSAI - 22418141000165</p>
             </div>
           </div>
         </div>
 
-        {/* Shop Section */}
+        {/* Shop Now Links */}
         <div className={styles.footerSection}>
           <h6 className={styles.footerHeading}>SHOP NOW</h6>
           <div className={styles.shopItemsWrapper}>
@@ -62,7 +58,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* PACKAGING Section */}
+        {/* Safe Packaging Info */}
         <div className={styles.footerSection}>
           <h6 className={styles.footerHeading}>SAFE PACKAGING</h6>
           <div className={styles.packagingWrapper}>
@@ -74,7 +70,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Policies Section */}
+        {/* Social Media Icons */}
         <div className={styles.footerSection}>
           <h6 className={styles.footerHeading}>FOLLOW US</h6>
           <div className={styles.socialIcons}>
@@ -90,7 +86,6 @@ const Footer = () => {
                 height={35}
               />
             </a>
-
             <a
               href="https://www.facebook.com/kathirbabyfoods.official"
               target="_blank"
@@ -130,7 +125,7 @@ const Footer = () => {
             >
               <Image
                 src="/assets/google-icon-logo-svgrepo-com.svg"
-                alt="google"
+                alt="Google"
                 width={28}
                 height={28}
               />
@@ -139,11 +134,9 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Bottom Section */}
       <div className={styles.footerBottom}>
-        {/* Divider Line */}
         <div className={styles.divider} />
-
-        {/* Copyright Text */}
         <p className={styles.copyrightText}>
           CopyRights ©{new Date().getFullYear()} Kathir Baby Foods. Developed by
           Tamtree India Private Limited.
