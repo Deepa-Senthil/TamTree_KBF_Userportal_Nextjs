@@ -63,7 +63,7 @@ export default function Navbar() {
           { href: "/catalog", label: "Our Catalog" },
           { href: "/reviews", label: "Customer Reviews" },
           { href: "/about", label: "About Us" },
-          { href: "/contact", label: "Contact Us" },
+          { href: "/contactus", label: "Contact Us" },
         ].map((link) => (
           <Link
             key={link.href}
