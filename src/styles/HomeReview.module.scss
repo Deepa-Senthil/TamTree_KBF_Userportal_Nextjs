@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 .testimonialsWrapper {
     padding: 60px 0;
     position: relative;
@@ -70,7 +72,7 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
-    color: rgb(255, 124, 0);
+    color: $button-color;
     background-color: transparent;
     font-size: 30px;
     border: none;
@@ -92,7 +94,7 @@
   
   .readMoreButton {
     border-radius: 10px;
-    background-color: rgb(255, 124, 0);
+    background-color:$button-color;
     font-weight: bold;
     color: white;
     padding: 12px 24px;
@@ -103,7 +105,7 @@
     transition: all 0.3s;
   
     &:hover {
-      background-color: rgb(235, 110, 0);
+      background-color: $button-color;
     }
   }
   
@@ -121,5 +123,70 @@
     .testimonialText {
       -webkit-line-clamp: 12;
     }
+  }
+  
+  //Why Choose Us
+
+  .whySection {
+    // padding: 40px 0;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .innerContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    // padding: 0 5px;
+  }
+  
+  .title {
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: $button-color;
+    font-family:  'a-alley-garden', cursive;
+    font-size: 45px;
+  
+    @media (max-width: 600px) {
+      font-size: 32px;
+    }
+  }
+  
+  .grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+  
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .whyCol {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .circleIcon {
+    margin: 0 auto 12px auto;
+    width: 90px;
+    height: 90px;
+  
+    img {
+      object-fit: contain;
+    }
+  }
+  
+  .text {
+    font-family: 'helvetica', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
   }
   
