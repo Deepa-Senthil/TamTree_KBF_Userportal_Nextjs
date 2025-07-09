@@ -1,0 +1,68 @@
+@use './variables' as *;
+
+.aboutUsContainer {
+    padding: 0 80px;
+margin-bottom: 1rem;
+    .container {
+        // max-width: 1000px;
+        // margin: 0 auto;
+        // padding: 0 10px;
+      }
+      
+    .title {
+      text-align: center;
+      font-weight: bold;
+      color: $button-color;
+      padding-top: 10px;
+      font-family: 'a-alley-garden', cursive;
+      font-size: 40px;
+  
+      @media (max-width: 600px) {
+        font-size: 30px;
+      }
+    }
+  
+    .contentWrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+    //   margin-top: 40px;
+  
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+  
+      .imageWrapper {
+        flex: 1;
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+      }
+  
+      .textContent {
+        flex: 1;
+        h4 {
+          color: #006400;
+          font-weight: 600;
+          font-size: 26px;
+          margin: 0.75rem;
+        }
+  
+        p {
+          font-family: 'helvetica', sans-serif;
+          line-height: 1.7;
+          margin-bottom: 1rem;
+        }
+  
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  
+
