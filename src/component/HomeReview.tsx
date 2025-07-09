@@ -118,7 +118,7 @@ const HomeReview: React.FC = () => {
   return (
     <div className={styles.testimonialsWrapper}>
       <h2 className={styles.title}>
-        What our customers <br className="mobileOnly" /> say ?!
+        What our customers say ? !
       </h2>
 
       <div className={styles.sliderContainer}>
