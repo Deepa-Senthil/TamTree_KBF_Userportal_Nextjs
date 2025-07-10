@@ -60,7 +60,7 @@ export default function Navbar() {
       <nav className={`${styles.navLinks} ${navOpen ? styles.open : ""}`}>
         {[
           { href: "/", label: "Home" },
-          { href: "/catalog", label: "Our Catalog" },
+          { href: "/ourcatalog", label: "Our Catalog" },
           { href: "/reviews", label: "Customer Reviews" },
           { href: "/about", label: "About Us" },
           { href: "/contactus", label: "Contact Us" },

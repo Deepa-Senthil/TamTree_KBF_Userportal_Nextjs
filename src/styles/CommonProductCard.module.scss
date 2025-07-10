@@ -1,0 +1,82 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    background-color: #fff;
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .cardContent {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #222;
+  }
+  
+  .select {
+    padding: 6px;
+    border: 1px solid #87b522;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  .quantityWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .quantityBox {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  
+    button {
+      padding: 6px 12px;
+      font-size: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+  
+      &:disabled {
+        color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  
+    input {
+      width: 40px;
+      text-align: center;
+      font-weight: bold;
+      border: none;
+    }
+  }
+  
+  .addToCart {
+    background-color: #004d00;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+  }
+  

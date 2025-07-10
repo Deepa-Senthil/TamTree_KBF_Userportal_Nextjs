@@ -1,25 +1,25 @@
+// app/layout.tsx (NOT in /components or /pages)
 import { ReactNode } from "react";
-import Head from "next/head";
+import "../styles/global.scss";
 import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
-import "../styles/global.scss";
+import ReactQueryProvider from "@/provider/ReactQueryProvider";
 
-interface LayoutProps {
-  children: ReactNode;
-}
+export const metadata = {
+  title: "Kathir Baby Foods",
+  description: "Best Homemade Baby Food",
+};
 
-export default function Layout({ children }: LayoutProps) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <Head>
-        <title>Kathir Baby Foods</title>
-      </Head>
       <body>
-        <Navbar />
-        <main >{children}</main>
-        <Footer />
+        <ReactQueryProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </ReactQueryProvider>
       </body>
     </html>
   );
 }
-

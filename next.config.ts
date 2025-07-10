@@ -1,9 +1,6 @@
 const nextConfig = {
   images: {
-    domains: [
-      "upload.wikimedia.org",
-      // Add other domains if needed
-    ],
+    domains: ["upload.wikimedia.org", "res.cloudinary.com"],
   },
 };
 
