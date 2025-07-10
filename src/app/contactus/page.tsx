@@ -18,10 +18,7 @@ const ContactUs = () => {
       <div className={styles.gridContainer}>
         {/* Left Image */}
         <div className={styles.imageContainer}>
-          <img
-            src="/asset/images/contactus-banner.jpg"
-            alt="Contact Us"
-          />
+          <img src="/asset/images/contactus-banner.jpg" alt="Contact Us" />
         </div>
 
         {/* Right Contact Details */}

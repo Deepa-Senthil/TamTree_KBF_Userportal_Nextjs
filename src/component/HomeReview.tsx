@@ -117,9 +117,7 @@ const HomeReview: React.FC = () => {
 
   return (
     <div className={styles.testimonialsWrapper}>
-      <h2 className={styles.title}>
-        What our customers say ? !
-      </h2>
+      <h2 className={styles.title}>What our customers say ? !</h2>
 
       <div className={styles.sliderContainer}>
         <Slider {...settings}>
@@ -132,15 +130,14 @@ const HomeReview: React.FC = () => {
             </div>
           ))}
         </Slider>
-      </div>
-
-      <div className={styles.readMoreWrapper}>
-        <a
-          className={styles.readMoreButton}
-          onClick={() => router.push("/customerreviews")}
-        >
-          Read More
-        </a>
+        <div className={styles.readMoreWrapper}>
+          <a
+            className={styles.readMoreButton}
+            onClick={() => router.push("/customerreviews")}
+          >
+            Read More
+          </a>
+        </div>
       </div>
     </div>
   );
