@@ -1,67 +1,80 @@
 .wrapper {
-    padding: 20px;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.backButton {
+  background-color: rgb(255, 124, 0);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  color: rgb(255, 124, 0);
+  font-family: "kathir-Logo-Food", sans-serif;
+}
+
+/* ✅ Responsive Grid */
+.grid {
+  display: grid;
+  gap: 16px;
+
+  grid-template-columns: repeat(2, 1fr); // Mobile
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(4, 1fr);
   }
-  
-  .backButton {
-    background-color: rgb(255, 124, 0);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-    cursor: pointer;
-    margin-right: 10px;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(5, 1fr); // Desktop
   }
-  
-  .title {
-    font-size: 32px;
-    font-weight: bold;
-    color: rgb(255, 124, 0);
-    font-family: "kathir-Logo-Food", sans-serif;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pageButton {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #f1f1f1;
   }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
-  }
-  
-  .gridItem {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .pageButton {
-    padding: 8px 14px;
-    border: 1px solid #ccc;
-    background-color: white;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 5px;
-  
-    &:hover {
-      background-color: #f1f1f1;
-    }
-  }
-  
-  .active {
-    border: 2px solid blue;
-    font-weight: bold;
-    background-color: #e0f0ff;
-  }
-  
+}
+
+.active {
+  border: 2px solid blue;
+  font-weight: bold;
+  background-color: #e0f0ff;
+}
