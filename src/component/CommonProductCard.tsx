@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "../styles/CommonProductCard.module.scss";
+import { useCart } from "../context/CartContext"; // ✅ Adjust path as needed
 
 interface Product {
   id: number;
@@ -14,6 +15,7 @@ interface Product {
 
 export default function CommonProductCard({ product }: { product: Product }) {
   const router = useRouter();
+  const { addToCart } = useCart(); // ✅ Access addToCart from context
 
   const [selectedSize, setSelectedSize] = useState(
     product.sizes[0]?.size || ""
@@ -50,6 +52,19 @@ export default function CommonProductCard({ product }: { product: Product }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id.toString(),
+      title: product.title,
+      imageUrl: product.imageUrl,
+      selectedSize: selectedSize,
+      selectedPrice: selectedPrice,
+      Quantity: quantity,
+    });
+
+    alert(`${product.title} (${selectedSize}) added to cart.`);
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.cardImage} onClick={handleCardClick}>
@@ -83,7 +98,6 @@ export default function CommonProductCard({ product }: { product: Product }) {
               -
             </button>
             <input
-            //   type="number"
               value={quantity}
               min={1}
               max={MAX_QUANTITY}
@@ -97,7 +111,9 @@ export default function CommonProductCard({ product }: { product: Product }) {
             <button onClick={handleIncreaseQuantity}>+</button>
           </div>
 
-          <button className={styles.addToCart}>🛒</button>
+          <button className={styles.addToCart} onClick={handleAddToCart}>
+            🛒
+          </button>
         </div>
       </div>
     </div>

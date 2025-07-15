@@ -4,10 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import styles from "../styles/Home.module.scss";
+import { useCart } from "../context/CartContext"; // ✅ Adjust the path as needed
 
 export default function Navbar() {
   const pathname = usePathname();
   const [navOpen, setNavOpen] = useState(false);
+  const { cartCount } = useCart(); // ✅ Get cartCount from context
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -37,6 +39,9 @@ export default function Navbar() {
           </div>
           <Link href="/cart" className={styles.cart}>
             🛒
+            {cartCount > 0 && (
+              <span className={styles.cartCount}>{cartCount}</span> // ✅ Show count badge
+            )}
           </Link>
         </div>
 
@@ -45,6 +50,9 @@ export default function Navbar() {
           <span className={styles["mobile-search"]}>🔍</span>
           <Link href="/cart" className={styles.cart}>
             🛒
+            {cartCount > 0 && (
+              <span className={styles.cartCount}>{cartCount}</span> // ✅ Mobile cart count
+            )}
           </Link>
           <button
             className={styles.hamburger}
