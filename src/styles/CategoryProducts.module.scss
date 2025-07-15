@@ -1,0 +1,69 @@
+.container {
+    padding: 16px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .backBtn {
+    background: orange;
+    border-radius: 100%;
+    color: white;
+    padding: 12px 12px;
+    margin-right: 12px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .title {
+    color: orange;
+    font-family: "kathir-Logo-Food";
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 12px;
+  
+    grid-template-columns: repeat(2, 1fr);
+  
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+  }
+  
+  
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px 0;
+    gap: 8px;
+  }
+  
+  .pageBtn {
+    background: none;
+    border: 1px solid orange;
+    padding: 4px 10px;
+    cursor: pointer;
+    color: orange;
+  }
+  
+  .pageBtn.active {
+    background: orange;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .loading,
+  .error,
+  .empty {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 1.1rem;
+  }
+  

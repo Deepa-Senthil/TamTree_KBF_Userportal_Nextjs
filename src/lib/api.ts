@@ -97,15 +97,11 @@ const fetchProductDetailById = async (productId: string) => {
       `/product/fetchProductByID/${productId}`
     );
 
-    // Construct the proxied Google Drive image URL
     const product = response.data;
-    const proxiedImageUrl = `https://api.kathirbabyfoods.co.in/proxy-google-drive?googleDriveLink=${encodeURIComponent(
-      product.imageUrl
-    )}`;
 
     return {
       ...product,
-      imageUrl: proxiedImageUrl, // Replace with proxied URL
+      imageUrl: product.imageUrl, 
     };
   } catch (error) {
     throw error;
@@ -123,9 +119,7 @@ export const getProductsByCategory = async (
       categoryName: response.data.category.categoryName,
       products: response.data.products.map((product: any) => ({
         ...product,
-        imageUrl: `https://api.kathirbabyfoods.co.in/proxy-google-drive?googleDriveLink=${encodeURIComponent(
-          product.imageUrl
-        )}`,
+        imageUrl: product.imageUrl, // ✅ Use direct Cloudinary URL
       })),
     };
   } catch (error) {
@@ -133,6 +127,7 @@ export const getProductsByCategory = async (
     throw error;
   }
 };
+
 
 export const getSearchProducts = async (
   searchTerm: string

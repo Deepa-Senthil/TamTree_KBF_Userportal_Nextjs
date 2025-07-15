@@ -13,10 +13,11 @@ const FeaturedCategories = () => {
     if (categoryId === "ALL") {
       router.push("/product");
     } else {
-      router.push(`/productsbycategory/${categoryId}`);
+      router.push(`/category/${categoryId}`);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
+  
 
   if (isLoading)
     return <p style={{ textAlign: "center" }}>Loading categories...</p>;

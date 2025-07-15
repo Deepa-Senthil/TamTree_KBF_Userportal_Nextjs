@@ -46,7 +46,7 @@ export default function CommonProductCard({ product }: { product: Product }) {
   };
 
   const handleCardClick = () => {
-    router.push(`/product/${product.id}`);
+    router.push(`/productdetail/${product.id}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

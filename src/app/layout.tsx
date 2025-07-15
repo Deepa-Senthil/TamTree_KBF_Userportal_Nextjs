@@ -4,6 +4,7 @@ import "../styles/global.scss";
 import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
 import ReactQueryProvider from "@/provider/ReactQueryProvider";
+import { CartProvider } from "@/context/CartContext";
 
 export const metadata = {
   title: "Kathir Baby Foods",
@@ -14,11 +15,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <ReactQueryProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </ReactQueryProvider>
+        <CartProvider>
+          <ReactQueryProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </ReactQueryProvider>
+        </CartProvider>
       </body>
     </html>
   );
