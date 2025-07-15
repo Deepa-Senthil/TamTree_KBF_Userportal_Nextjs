@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from "../../../styles/ProductDetail.module.scss";
 import { useProductDetailById } from "@/hooks/Hooks";
 import { useCart } from "@/context/CartContext";
+import AddToBagModal from "@/component/AddToBagModel";
 
 interface SizeWithPrice {
   size: string;
@@ -35,7 +36,6 @@ interface CartItem {
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const router = useRouter();
-  // Correct way to access params in current Next.js versions
   const { data: product, isLoading, isError } = useProductDetailById(id);
   const [openModal, setOpenModal] = useState(false);
   const [quantity, setQuantity] = useState<number>(1);
@@ -119,6 +119,10 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       });
     }
     setOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setOpenModal(false);
   };
 
   if (isLoading)
@@ -260,18 +264,16 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       </div>
 
       {/* Add to Bag Modal */}
-      {/* <AddToBagModel
+      <AddToBagModal
         open={openModal}
-        onClose={() => {
-          setOpenModal(false);
-        }}
+        onClose={closeModal}
         product={{
           title: product.title,
           imageUrl: product.imageUrl,
           selectedSize,
           selectedPrice,
         }}
-      /> */}
+      />
     </div>
   );
 }

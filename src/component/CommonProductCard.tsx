@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "../styles/CommonProductCard.module.scss";
-import { useCart } from "../context/CartContext"; // ✅ Adjust path as needed
+import { useCart } from "../context/CartContext";
+import AddToBagModal from "./AddToBagModel";
 
 interface Product {
   id: number;
@@ -15,7 +16,7 @@ interface Product {
 
 export default function CommonProductCard({ product }: { product: Product }) {
   const router = useRouter();
-  const { addToCart } = useCart(); // ✅ Access addToCart from context
+  const { addToCart } = useCart();
 
   const [selectedSize, setSelectedSize] = useState(
     product.sizes[0]?.size || ""
@@ -24,6 +25,7 @@ export default function CommonProductCard({ product }: { product: Product }) {
     product.sizes[0]?.price || 0
   );
   const [quantity, setQuantity] = useState(1);
+  const [showModal, setShowModal] = useState(false);
   const MAX_QUANTITY = 20;
 
   const handleSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -53,16 +55,21 @@ export default function CommonProductCard({ product }: { product: Product }) {
   };
 
   const handleAddToCart = () => {
-    addToCart({
+    const cartItem = {
       id: product.id.toString(),
       title: product.title,
       imageUrl: product.imageUrl,
       selectedSize: selectedSize,
       selectedPrice: selectedPrice,
       Quantity: quantity,
-    });
+    };
 
-    alert(`${product.title} (${selectedSize}) added to cart.`);
+    addToCart(cartItem);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -116,6 +123,17 @@ export default function CommonProductCard({ product }: { product: Product }) {
           </button>
         </div>
       </div>
+
+      <AddToBagModal
+        open={showModal}
+        onClose={closeModal}
+        product={{
+          title: product.title,
+          imageUrl: product.imageUrl,
+          selectedSize: selectedSize,
+          selectedPrice: selectedPrice,
+        }}
+      />
     </div>
   );
 }
