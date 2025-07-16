@@ -210,71 +210,71 @@ export default function MyBagDrawer({ open, onClose }: MyBagDrawerProps) {
             </div>
           </>
         )}
-      </div>
-      <div className={styles.footer}>
-        <div className={styles.orderInfo}>
-          <p className={styles.infoHeader}>
-            <span className={styles.starIcon}>★</span> Every order is freshly
-            prepared and dispatched safely.
-          </p>
-          <h3>Order Processing & Shipping Details:</h3>
-          <ol className={styles.infoList}>
-            <li>
-              <strong>Confirm & Send Your Order</strong> - Share your product
-              list with us along with your details.
-            </li>
-            <li>
-              <strong>Shipping Charges</strong> - Once we receive your order
-              list, we'll calculate the exact shipping charges based on box
-              weight and delivery distance.
-            </li>
-            <li>
-              <strong>Payment</strong> - Total amount (including shipping) will
-              be shared to you via WhatsApp for payment.
-            </li>
-            <li>
-              <strong>Order Processing</strong> - Once payment is received,
-              we'll begin preparing your order.
-            </li>
-            <li>
-              <strong>
-                For any further assistance, please{" "}
-                <a
-                  href="https://wa.me/+918095675500?text=Hi%20!%20Kathir%20Baby%20Foods%20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.whatsappLink}
-                >
-                  WhatsApp us – 8095675500
-                </a>
-              </strong>
-            </li>
-          </ol>
-        </div>
 
-        {cartItems.length > 0 && (
-          <div className={styles.actionButtons}>
-            <button
-              className={styles.confirmButton}
-              onClick={() => setIsFormOpen(true)}
-            >
-              Confirm Order
-            </button>
-            <Link
-              href="/ourcatalog"
-              className={styles.continueButton}
-              onClick={onClose}
-            >
-              Continue Shopping
-            </Link>
+        <div className={styles.footer}>
+          <div className={styles.orderInfo}>
+            <p className={styles.infoHeader}>
+              <span className={styles.starIcon}>★</span> Every order is freshly
+              prepared and dispatched safely.
+            </p>
+            <h3>Order Processing & Shipping Details:</h3>
+            <ol className={styles.infoList}>
+              <li>
+                <strong>Confirm & Send Your Order</strong> - Share your product
+                list with us along with your details.
+              </li>
+              <li>
+                <strong>Shipping Charges</strong> - Once we receive your order
+                list, we'll calculate the exact shipping charges based on box
+                weight and delivery distance.
+              </li>
+              <li>
+                <strong>Payment</strong> - Total amount (including shipping)
+                will be shared to you via WhatsApp for payment.
+              </li>
+              <li>
+                <strong>Order Processing</strong> - Once payment is received,
+                we'll begin preparing your order.
+              </li>
+              <li>
+                <strong>
+                  For any further assistance, please{" "}
+                  <a
+                    href="https://wa.me/+918095675500?text=Hi%20!%20Kathir%20Baby%20Foods%20"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.whatsappLink}
+                  >
+                    WhatsApp us – 8095675500
+                  </a>
+                </strong>
+              </li>
+            </ol>
           </div>
-        )}
-      </div>
 
+          {cartItems.length > 0 && (
+            <div className={styles.actionButtons}>
+              <button
+                className={styles.confirmButton}
+                onClick={() => setIsFormOpen(true)}
+              >
+                Confirm Order
+              </button>
+              <Link
+                href="/ourcatalog"
+                className={styles.continueButton}
+                onClick={onClose}
+              >
+                Continue Shopping
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
       <OrderFormModal
         isOpen={isFormOpen}
         onClose={() => setIsFormOpen(false)}
-        onSubmit={(formData:any) => {
+        onSubmit={(formData: any) => {
           const orderData = {
             Name: formData.name,
             phoneNumber: formData.phone || 0,
@@ -285,7 +285,7 @@ export default function MyBagDrawer({ open, onClose }: MyBagDrawerProps) {
           };
 
           createOrderMutation.mutate(orderData, {
-            onSuccess: (data:any) => {
+            onSuccess: (data: any) => {
               const orderNumber = data.orderNumber;
               setOrderSuccess({
                 orderNumber,
@@ -295,11 +295,11 @@ export default function MyBagDrawer({ open, onClose }: MyBagDrawerProps) {
               clearCart();
             },
             onError: () => {
-            //   updateSnackBarState(
-            //     true,
-            //     "Failed to send order. Please try again.",
-            //     SnackbarSeverityEnum.ERROR
-            //   );
+              //   updateSnackBarState(
+              //     true,
+              //     "Failed to send order. Please try again.",
+              //     SnackbarSeverityEnum.ERROR
+              //   );
             },
           });
         }}

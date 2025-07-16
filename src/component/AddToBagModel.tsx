@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "../styles/AddToBagModel.module.scss";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
+import MyBagDrawer from "./mybagdrawer/MyBagDrawer";
 // import MyBagDrawer from "../drawer/MyBagDrawer";
 
 interface AddToBagModalProps {
@@ -84,7 +85,7 @@ export default function AddToBagModal({
           </div>
         </div>
       )}
-      {/* <MyBagDrawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} /> */}
+      <MyBagDrawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
     </>
   );
 }
