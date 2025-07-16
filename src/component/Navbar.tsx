@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import styles from "../styles/Home.module.scss";
-import { useCart } from "../context/CartContext"; // ✅ Adjust the path as needed
+import { useCart } from "../context/CartContext";
 
-export default function Navbar() {
+export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
   const pathname = usePathname();
   const [navOpen, setNavOpen] = useState(false);
-  const { cartCount } = useCart(); // ✅ Get cartCount from context
+  const { cartCount } = useCart();
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -37,23 +37,23 @@ export default function Navbar() {
             <input type="search" placeholder="Search Products" />
             <span className={styles.icon}>🔍</span>
           </div>
-          <Link href="/cart" className={styles.cart}>
+          <a onClick={onCartClick} className={styles.cart}>
             🛒
             {cartCount > 0 && (
-              <span className={styles.cartCount}>{cartCount}</span> // ✅ Show count badge
+              <span className={styles.cartCount}>{cartCount}</span>
             )}
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Icons (Search, Cart, Hamburger) */}
         <div className={styles.mobileIcons}>
           <span className={styles["mobile-search"]}>🔍</span>
-          <Link href="/cart" className={styles.cart}>
+          <a onClick={onCartClick} className={styles.cart}>
             🛒
             {cartCount > 0 && (
-              <span className={styles.cartCount}>{cartCount}</span> // ✅ Mobile cart count
+              <span className={styles.cartCount}>{cartCount}</span>
             )}
-          </Link>
+          </a>
           <button
             className={styles.hamburger}
             onClick={toggleNav}

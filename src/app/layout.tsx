@@ -1,27 +1,22 @@
-// app/layout.tsx (NOT in /components or /pages)
-import { ReactNode } from "react";
+// src/app/layout.tsx
+import LayoutClient from "@/component/LayoutClient";
 import "../styles/global.scss";
-import Navbar from "@/component/Navbar";
-import Footer from "@/component/Footer";
-import ReactQueryProvider from "@/provider/ReactQueryProvider";
-import { CartProvider } from "@/context/CartContext";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Kathir Baby Foods",
   description: "Best Homemade Baby Food",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
-        <CartProvider>
-          <ReactQueryProvider>
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
-          </ReactQueryProvider>
-        </CartProvider>
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );

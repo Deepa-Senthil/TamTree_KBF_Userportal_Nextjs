@@ -1,0 +1,494 @@
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 60vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  
+    @media (max-width: 768px) {
+      max-width: 100vw;
+    }
+  }
+  
+  .drawerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+  }
+  
+  .drawerTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    width: 100%;
+  }
+  
+  .drawerContent {
+    padding: 16px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .emptyCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 16px;
+  }
+  
+  .backButton {
+    padding: 8px 16px;
+    background-color: #4d6432;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    &:hover {
+      background-color: #3a4d26;
+    }
+  }
+  
+  .cartTableContainer {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 16px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  .cartTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+  
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  
+    th {
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      background-color: white;
+    }
+  }
+  
+  .productImage {
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .quantityControl {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantityButton {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  
+  .quantityInput {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    -moz-appearance: textfield;
+  
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  
+  .deleteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #ff4444;
+  
+    &:hover {
+      color: #cc0000;
+    }
+  }
+  
+  .summary {
+    text-align: right;
+    padding: 16px;
+    margin-top: 16px;
+    border-top: 1px solid #e0e0e0;
+  
+    p {
+      margin: 8px 0;
+      font-size: 1.1rem;
+    }
+  }
+  
+  .footer {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  .orderInfo {
+    border: 1px solid #4d6432;
+    padding: 16px;
+    border-radius: 5px;
+    max-width: 450px;
+    margin: 0 auto 16px;
+  }
+  
+  .infoHeader {
+    color: blue;
+    font-weight: 600;
+    font-size: 17px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .starIcon {
+    color: rgb(255 124 0);
+    font-size: 15px;
+    margin-right: 5px;
+  }
+  
+  .infoList {
+    padding-left: 20px;
+    margin: 0;
+  
+    li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+  }
+  
+  .whatsappLink {
+    color: #4d6432;
+    text-decoration: none;
+    font-weight: bold;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .actionButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  
+  .confirmButton {
+    padding: 10px 20px;
+    background-color: #4d6432;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 200px;
+    text-align: center;
+  
+    &:hover {
+      background-color: #3a4d26;
+    }
+  }
+  
+  .continueButton {
+    padding: 10px 20px;
+    border: 1px solid #4d6432;
+    color: #4d6432;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+  
+    &:hover {
+      border-color: #3a4d26;
+      color: #3a4d26;
+    }
+  }
+
+  // Modal styles
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  
+  .modalContent {
+    background-color: white;
+    padding: 24px;
+    border-radius: 8px;
+    width: 300px;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .modalTitle {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    color: #333;
+  }
+  
+  .formGroup {
+    margin-bottom: 16px;
+  
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    color: #555;
+    }
+  
+    input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+  
+      &:focus {
+        outline: none;
+        border-color: #4d6432;
+      }
+    }
+  }
+  
+  .errorInput {
+    border-color: #ff4444 !important;
+  }
+  
+  .errorText {
+    color: #ff4444;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: block;
+  }
+  
+  .modalActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+  
+  .cancelButton {
+    padding: 8px 16px;
+    border: 1px solid #4d6432;
+    color: #4d6432;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+  
+  .submitButton {
+    padding: 8px 16px;
+    background-color: #4d6432;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    &:hover {
+      background-color: #3a4d26;
+    }
+  }
+  
+  .disabledButton {
+    background-color: #aaa;
+    cursor: not-allowed;
+  
+    &:hover {
+      background-color: #aaa;
+    }
+  }
+  
+  .whatsappIcon {
+    margin-right: 8px;
+  }
+  
+  // Success Modal
+  .successModalContent {
+    background-color: white;
+    padding: 24px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .closeSuccessModal {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+  }
+  
+  .successTitle {
+    color: blue;
+    margin-bottom: 16px;
+    font-size: 1.25rem;
+  }
+  
+  .successMessage {
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  
+  .successActions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .whatsappButton {
+    padding: 10px 16px;
+    background-color: #4d6432;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    &:hover {
+      background-color: #3a4d26;
+    }
+  }
+  
+  .homeButton {
+    padding: 10px 16px;
+    border: 1px solid #4d6432;
+    color: #4d6432;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+  
+    &:hover {
+      border-color: #3a4d26;
+      color: #3a4d26;
+    }
+  }
+  
+  // Confirmation Modal
+  .confirmationModalContent {
+    background-color: white;
+    padding: 24px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  
+    h3 {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+  
+    p {
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+  }
+  
+  .confirmationActions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .confirmDeleteButton {
+    padding: 8px 16px;
+    background-color: #4d6432;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  
+    &:hover {
+      background-color: #3a4d26;
+    }
+  }
