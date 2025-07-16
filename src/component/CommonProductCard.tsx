@@ -55,6 +55,10 @@ export default function CommonProductCard({ product }: { product: Product }) {
   };
 
   const handleAddToCart = () => {
+    if (quantity === 0 || quantity === null) {
+      alert("This product requires a minimum order quantity of 1. Please check the quantity selection.");
+      return; // Exit the function early
+    }
     const cartItem = {
       id: product.id.toString(),
       title: product.title,
@@ -105,16 +109,34 @@ export default function CommonProductCard({ product }: { product: Product }) {
               -
             </button>
             <input
-              value={quantity}
+              value={quantity === 0 ? "" : quantity}
               min={1}
               max={MAX_QUANTITY}
               onChange={(e) => {
-                const val = parseInt(e.target.value);
-                if (!isNaN(val) && val >= 1 && val <= MAX_QUANTITY) {
-                  setQuantity(val);
+                const val = e.target.value;
+                if (val === "") {
+                  setQuantity(0); // Allow user to clear input
+                } else {
+                  const num = parseInt(val);
+                  if (!isNaN(num)) {
+                    if (num < 1) {
+                      alert(
+                        "This product requires a minimum order quantity of 1. Please check the quantity selection."
+                      );
+                      setQuantity(1);
+                    } else if (num > MAX_QUANTITY) {
+                      alert(
+                        `Maximum Allowed Quantity: ${MAX_QUANTITY} Units per Product. Please review the Quantity in your Bag.`
+                      );
+                      setQuantity(MAX_QUANTITY);
+                    } else {
+                      setQuantity(num);
+                    }
+                  }
                 }
               }}
             />
+
             <button onClick={handleIncreaseQuantity}>+</button>
           </div>
 

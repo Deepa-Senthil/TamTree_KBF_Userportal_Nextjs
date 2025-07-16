@@ -86,7 +86,9 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
   const handleQuantityChange = (newQuantity: number) => {
     if (newQuantity > 20) {
-      alert("Maximum Allowed Quantity: 20 Units per Product.");
+      alert(
+        "Maximum Allowed Quantity: 20 Units per Product. Please review the Quantity in your Bag."
+      );
       return;
     }
     if (newQuantity >= 1) {
@@ -100,7 +102,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
   const handleAddToCart = () => {
     if (quantity <= 0) {
-      alert("Minimum order quantity is 1");
+      alert("This product requires a minimum order quantity of 1. Please check the quantity selection.");
       return;
     }
     if (!product?.sizeWithPrice?.length) {
@@ -189,13 +191,33 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                     </button>
 
                     <input
-                      // type="number"
-                      value={quantity}
-                      min={1}
-                      max={20}
+                      value={quantity === 0 ? "" : quantity}
                       onChange={(e) => {
                         const val = parseInt(e.target.value);
-                        if (!isNaN(val)) handleQuantityChange(val);
+
+                        // If empty input (user is typing), don't process yet
+                        if (e.target.value === "") {
+                          setQuantity(0); // Temporarily set 0 to make input controlled
+                          return;
+                        }
+
+                        if (!isNaN(val)) {
+                          if (val < 1) {
+                            alert(
+                              "This product requires a minimum order quantity of 1. Please check the quantity selection."
+                            );
+                            setQuantity(0); // Clear input
+                            return;
+                          }
+                          if (val > 20) {
+                            alert(
+                              "Maximum Allowed Quantity: 20 Units per Product. Please review the Quantity in your Bag."
+                            );
+                            // setQuantity(0); // Clear input
+                            return;
+                          }
+                          handleQuantityChange(val);
+                        }
                       }}
                       className={styles.quantityInput}
                     />
