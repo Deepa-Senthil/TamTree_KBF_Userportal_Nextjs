@@ -172,7 +172,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                   >
                     {product.sizeWithPrice.map((item) => (
                       <option key={item.size} value={item.size}>
-                        {item.size} - ₹{item.price}
+                        {item.size}&nbsp;&nbsp; - &nbsp;&nbsp;₹{item.price}
                       </option>
                     ))}
                   </select>
@@ -189,7 +189,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                     </button>
 
                     <input
-                      type="number"
+                      // type="number"
                       value={quantity}
                       min={1}
                       max={20}
