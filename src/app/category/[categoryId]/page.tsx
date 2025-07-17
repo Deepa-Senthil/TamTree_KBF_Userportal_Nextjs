@@ -17,7 +17,7 @@ export default function CategoryPage() {
   const { categoryId } = useParams();
   const router = useRouter();
   const [page, setPage] = useState(1);
-  const productsPerPage = 10;
+  const productsPerPage = 6;
 
   const {
     data: productsData,

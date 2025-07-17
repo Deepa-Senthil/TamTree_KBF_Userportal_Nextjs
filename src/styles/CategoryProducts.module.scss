@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 .container {
     padding: 16px;
   }
@@ -9,7 +11,7 @@
   }
   
   .backBtn {
-    background: orange;
+    background: $button-color;
     border-radius: 100%;
     color: white;
     padding: 12px 12px;
@@ -19,7 +21,7 @@
   }
   
   .title {
-    color: orange;
+    color:$button-color;
     font-family: "kathir-Logo-Food";
     font-size: 2rem;
     font-weight: 700;
@@ -46,17 +48,32 @@
   }
   
   .pageBtn {
-    background: none;
-    border: 1px solid orange;
-    padding: 4px 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: $secondary-color;
+    border: 1px solid #ddd;
     cursor: pointer;
-    color: orange;
+    font-size: 0.6rem;
+    transition: all 0.3s ease;
+    margin: 0.25rem;
+
+    &:hover {
+      background-color: blue;
+      border-color: blue;
+      color: white;
+    }
   }
   
   .pageBtn.active {
-    background: orange;
-    color: white;
-    font-weight: bold;
+    background-color: $button-color;
+  color: white;
+  border-color: $button-color;
+  font-weight: bold;
   }
   
   .loading,

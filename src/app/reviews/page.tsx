@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import styles from "../../styles/Reviews.module.scss";
 import { useGetReviews } from "@/hooks/Hooks";
 
-// Types
 type ReviewData = {
   id: number;
   rating: number;
@@ -50,7 +49,7 @@ const ReviewCards = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (isLoading) return <p>Loading reviews...</p>;
+  if (isLoading) return <p className={styles.loading}>Loading reviews...</p>;
   if (isError || !reviews)
     return <p className={styles.error}>Failed to load reviews.</p>;
 
@@ -72,29 +71,37 @@ const ReviewCards = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const renderPagination = () => (
+    <div className={styles.paginationWrapper}>
+      {[...Array(totalPages)].map((_, i) => (
+        <button
+          key={i + 1}
+          onClick={() => handlePageChange(i + 1)}
+          className={`${styles.pageButton} ${
+            page === i + 1 ? styles.active : ""
+          }`}
+        >
+          {i + 1}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Customer Reviews</h2>
+
+      {/* Top Pagination */}
+      {totalPages > 1 && renderPagination()}
+
       <div className={styles.cardsWrapper}>
         {paginatedReviews.map((review) => (
           <ReviewCard key={review.id} reviewData={review} />
         ))}
       </div>
-      {totalPages > 1 && (
-        <div className={styles.paginationWrapper}>
-          {[...Array(totalPages)].map((_, i) => (
-            <button
-              key={i + 1}
-              onClick={() => handlePageChange(i + 1)}
-              className={`${styles.pageButton} ${
-                page === i + 1 ? styles.active : ""
-              }`}
-            >
-              {i + 1}
-            </button>
-          ))}
-        </div>
-      )}
+
+      {/* Bottom Pagination */}
+      {totalPages > 1 && renderPagination()}
     </div>
   );
 };
