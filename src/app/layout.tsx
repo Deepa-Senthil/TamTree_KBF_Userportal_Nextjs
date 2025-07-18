@@ -2,6 +2,7 @@
 import LayoutClient from "@/component/LayoutClient";
 import "../styles/global.scss";
 import type { Metadata } from "next";
+import Loader from "@/component/Loader";
 
 export const metadata: Metadata = {
   title: "Kathir Baby Foods",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Loader/>
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
