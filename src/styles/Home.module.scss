@@ -340,7 +340,33 @@
   right: 0;
   padding: 15px;
 }
+.searchResults {
+  margin-top: 40px;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 8px;
+  position: absolute;
+  width: 80%;
+  z-index: 1000;
 
+  li {
+    padding: 6px;
+    border-bottom: 1px solid #eee;
+
+    a {
+      text-decoration: none;
+      color: #333;
+
+      &:hover {
+        color: #7F1734;
+        font-weight: bold;
+      }
+    }
+  }
+}
 
 //Footer
 
