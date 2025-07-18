@@ -2,15 +2,19 @@
 
 .wrapper {
     text-align: center;
-    // padding: 6rem;
+    padding: 1rem 1rem;
   }
   
   .title {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    color: #ff7c00;
-    font-family: 'a-alley-garden', cursive;  }
+    color: $button-color;
+    font-family: 'a-alley-garden', cursive; 
+    @media (min-width: 900px) {
+      margin-top: 60px;
+    }
+  }
   
   .categoryGrid {
     display: grid;

@@ -133,7 +133,7 @@ const HomeReview: React.FC = () => {
         <div className={styles.readMoreWrapper}>
           <a
             className={styles.readMoreButton}
-            onClick={() => router.push("/customerreviews")}
+            onClick={() => router.push("/reviews")}
           >
             Read More
           </a>

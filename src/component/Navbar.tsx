@@ -12,15 +12,22 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
   const [navOpen, setNavOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
   const { cartCount } = useCart();
 
+  // Debounce search term
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
+
+  const { data: searchResults = [], isLoading } =
+    useGetSearchProducts(debouncedSearchTerm);
   const toggleNav = () => setNavOpen(!navOpen);
 
-  // Use your custom search hook
-  const { data: searchResults = [], isLoading } =
-    useGetSearchProducts(searchTerm);
-
-  // Close nav on link click
   const handleLinkClick = () => setNavOpen(false);
 
   return (
@@ -41,31 +48,41 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
 
           {/* Desktop Search & Cart */}
           <div className={styles["search-cart-group"]}>
-            <div className={styles["search-box"]}>
-              <input
-                type="search"
-                placeholder="Search Products"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <span className={styles.icon}>🔍</span>
-            </div>
+            <div className={styles["search-container"]}>
+              <div className={styles["search-box"]}>
+                <input
+                  type="search"
+                  placeholder="Search Products"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <span className={styles.icon}>🔍</span>
+              </div>
 
-            {/* Results for desktop */}
-            {searchTerm && searchResults.length > 0 && (
-              <ul className={styles.searchResults}>
-                {searchResults.map((item: any) => (
-                  <li key={item.id}>
-                    <Link
-                      href={`/productdetail/${item.id}`}
-                      onClick={() => setSearchTerm("")}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
+              {/* Desktop Search Results */}
+              {searchTerm && (
+                <div className={styles.searchResults}>
+                  {isLoading ? (
+                    <div className={styles.searchLoading}>Loading...</div>
+                  ) : searchResults.length > 0 ? (
+                    searchResults.map((item: any) => (
+                      <Link
+                        key={item.id}
+                        href={`/productdetail/${item.id}`}
+                        className={styles.searchResultItem}
+                        onClick={() => setSearchTerm("")}
+                      >
+                        {item.title}
+                      </Link>
+                    ))
+                  ) : (
+                    <div className={styles.searchNoResults}>
+                      {searchTerm ? "No products found" : ""}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
 
             <a onClick={onCartClick} className={styles.cart}>
               🛒
@@ -78,7 +95,7 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
           {/* Mobile Icons */}
           <div className={styles.mobileIcons}>
             <span
-              className={styles["mobile-search"]}
+              className={styles["mobile-search-icon"]}
               onClick={() => setSearchOpen(true)}
             >
               🔍
@@ -120,12 +137,15 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
         </nav>
       </header>
 
-      {/* ✅ Mobile Search Drawer */}
+      {/* Mobile Search Drawer */}
       {searchOpen && (
         <div className={styles.searchTopDrawer}>
           <div
             className={styles.searchDrawerOverlay}
-            onClick={() => setSearchOpen(false)}
+            onClick={() => {
+              setSearchOpen(false);
+              setSearchTerm("");
+            }}
           ></div>
           <div className={styles.searchDrawerPanel}>
             <div className={styles.searchInputWrapper}>
@@ -136,32 +156,44 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className={styles.searchInput}
+                autoFocus
               />
               <button
                 className={styles.closeSearchBtn}
-                onClick={() => setSearchOpen(false)}
+                onClick={() => {
+                  setSearchOpen(false);
+                  setSearchTerm("");
+                }}
               >
                 ❌
               </button>
             </div>
 
-            {/* Mobile search results */}
-            {searchTerm && searchResults.length > 0 && (
-              <ul className={styles.searchResults}>
-                {searchResults.map((item: any) => (
-                  <li key={item.id}>
+            {/* Mobile Search Results */}
+            {searchTerm && (
+              <div className={styles.mobileSearchResults}>
+                {isLoading ? (
+                  <div className={styles.searchLoading}>Loading...</div>
+                ) : searchResults.length > 0 ? (
+                  searchResults.map((item: any) => (
                     <Link
-                      href={`/product/${item.id}`}
+                      key={item.id}
+                      href={`/productdetail/${item.id}`}
+                      className={styles.searchResultItem}
                       onClick={() => {
-                        setSearchOpen(false);
                         setSearchTerm("");
+                        setSearchOpen(false);
                       }}
                     >
                       {item.title}
                     </Link>
-                  </li>
-                ))}
-              </ul>
+                  ))
+                ) : (
+                  <div className={styles.searchNoResults}>
+                    {searchTerm ? "No products found" : ""}
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </div>
