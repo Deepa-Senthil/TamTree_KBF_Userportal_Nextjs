@@ -17,7 +17,7 @@ export default function CategoryPage() {
   const { categoryId } = useParams();
   const router = useRouter();
   const [page, setPage] = useState(1);
-  const productsPerPage = 6;
+  const productsPerPage = 10;
 
   const {
     data: productsData,
@@ -75,7 +75,7 @@ export default function CategoryPage() {
         <h2 className={styles.title}>{productsData.categoryName}</h2>
       </div>
 
-      {totalPages > 1 && (
+      {/* {totalPages > 1 && (
         <div className={styles.pagination}>
           {Array.from({ length: totalPages }).map((_, idx) => (
             <button
@@ -89,7 +89,7 @@ export default function CategoryPage() {
             </button>
           ))}
         </div>
-      )}
+      )} */}
 
       <div className={styles.grid}>
         {paginatedProducts.map((product: Product) => (

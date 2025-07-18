@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
         text: "Hygienically prepared",
       },
       {
-        icon: "/asset/images/Balanced-removebg-preview.png", 
+        icon: "/asset/images/Balanced-removebg-preview.png",
         text: "Balanced Nutritious food",
       },
     ],
@@ -57,6 +57,7 @@ const WhyChooseUs = () => {
                   alt={`why-icon-${index + 1}`}
                   width={90}
                   height={90}
+                  className={styles.iconImage}
                 />
               </div>
               <p className={styles.text}>{item.text}</p>

@@ -7,7 +7,7 @@
   .header {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
+    // margin-bottom: 6px;
   }
   
   .backBtn {
@@ -22,10 +22,12 @@
   
   .title {
     color:$button-color;
-    font-family: "kathir-Logo-Food";
-    font-size: 2rem;
+    font-family: 'a-alley-garden', cursive;
+    font-size: 2.5rem;
     font-weight: 700;
-  }
+display: flex; 
+justify-content: center;
+text-align: center;}
   
   .grid {
     display: grid;
@@ -43,7 +45,7 @@
   .pagination {
     display: flex;
     justify-content: flex-end;
-    margin: 16px 0;
+    // margin: 16px 0;
     gap: 8px;
   }
   

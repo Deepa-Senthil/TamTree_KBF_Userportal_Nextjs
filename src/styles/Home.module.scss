@@ -144,14 +144,17 @@
   background: $secondary-color;
   display: flex;
   justify-content: left;
-  padding: 0.75rem 0;
-
+  padding: 0.5rem 0;
+  border-top: 1px solid #f2e6bb; // Sandal color
+  border-bottom: 1px solid #f2e6bb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),  // Outer subtle shadow
+  0 0 0 1px rgba(255, 255, 255, 0.1);
   a {
     color: white;
     margin: 0 1rem;
     text-decoration: none;
     font-family: 'a-alley-garden', cursive;
-    font-size: 1.75rem;
+    font-size: 26px;
 
     &:hover {
       color: $footer-heading;

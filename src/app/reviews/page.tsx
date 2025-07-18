@@ -92,7 +92,7 @@ const ReviewCards = () => {
       <h2 className={styles.title}>Customer Reviews</h2>
 
       {/* Top Pagination */}
-      {totalPages > 1 && renderPagination()}
+      {/* {totalPages > 1 && renderPagination()} */}
 
       <div className={styles.cardsWrapper}>
         {paginatedReviews.map((review) => (
