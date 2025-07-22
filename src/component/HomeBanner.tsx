@@ -8,10 +8,10 @@ import styles from "../styles/HomeReview.module.scss";
 
 const HomeBanner = () => {
   const images = [
-    "/asset/images/Kbf-home-banner1.jpg",
-    "/asset/images/Kbf-home-banner2.jpg",
-    "/asset/images/Kbf-home-banner3.jpg",
-    "/asset/images/Kbf-home-banner4.jpg",
+    "/asset/images/Kbf-home-banner1.webp",
+    "/asset/images/Kbf-home-banner2.webp",
+    "asset/images/Kbf-home-banner3.webp",
+    "/asset/images/Kbf-home-banner4.webp",
   ];
 
   const settings = {

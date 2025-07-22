@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useGetCategories } from "@/hooks/Hooks";
 import styles from "../../styles/OurCatalog.module.scss";
+import Head from "next/head";
 
 const FeaturedCategories = () => {
   const router = useRouter();
@@ -30,44 +31,53 @@ const FeaturedCategories = () => {
     );
 
   return (
-    <div className={styles.wrapper}>
-      <h2 className={styles.title}>Our Featured Categories</h2>
+    <>
+      <Head>
+        <title>Our Catalog | Kathir Baby Foods</title>
+        <meta
+          name="description"
+          content="Explore featured categories at Kathir Baby Foods, offering healthy, homemade baby food products for every stage of growth."
+        />
+      </Head>
+      <div className={styles.wrapper}>
+        <h2 className={styles.title}>Our Featured Categories</h2>
 
-      <div className={styles.categoryGrid}>
-        {/* ALL category */}
-        <div
-          className={styles.categoryItem}
-          onClick={() => handleCategoryClick("ALL")}
-        >
-          <Image
-            src="/asset/images/allProducts.jpg" // ✅ Corrected path
-            alt="All Categories"
-            width={120}
-            height={120}
-            className={styles.imageCircle}
-          />
-          <div className={styles.categoryName}>All</div>
-        </div>
-
-        {/* Dynamic API categories */}
-        {categories.map((category) => (
+        <div className={styles.categoryGrid}>
+          {/* ALL category */}
           <div
-            key={category.id}
             className={styles.categoryItem}
-            onClick={() => handleCategoryClick(category.id)}
+            onClick={() => handleCategoryClick("ALL")}
           >
             <Image
-              src={category.imageURL || "/default-category.jpg"}
-              alt={category.categoryName}
+              src="/asset/images/allProducts.jpg" // ✅ Corrected path
+              alt="All Categories"
               width={120}
               height={120}
               className={styles.imageCircle}
             />
-            <div className={styles.categoryName}>{category.categoryName}</div>
+            <div className={styles.categoryName}>All</div>
           </div>
-        ))}
+
+          {/* Dynamic API categories */}
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              className={styles.categoryItem}
+              onClick={() => handleCategoryClick(category.id)}
+            >
+              <Image
+                src={category.imageURL || "/default-category.jpg"}
+                alt={category.categoryName}
+                width={120}
+                height={120}
+                className={styles.imageCircle}
+              />
+              <div className={styles.categoryName}>{category.categoryName}</div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

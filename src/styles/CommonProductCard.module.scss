@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 .card {
     display: flex;
     flex-direction: column;
@@ -59,7 +61,7 @@
   .select {
     text-align: center;
     padding: 6px;
-    border: 1px solid #87b522;
+    border: 1px solid $secondary-color-light;
     font-weight: 500;
     width: 70%;
     border-radius: 4px;
@@ -101,7 +103,7 @@
   
   .addToCart {
     // background-color: #004d00;
-    color:  #004d00;
+    color: $secondary-color;
     padding: 6px 10px;
     border-radius: 4px;
     font-size: 16px;

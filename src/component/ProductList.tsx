@@ -42,7 +42,7 @@ export default function ProductList() {
       <div className={styles.header}>
         <button
           className={styles.backButton}
-          onClick={() => router.push("/featuredcategories")}
+          onClick={() => router.push("/ourcatalog")}
         >
           ←
         </button>

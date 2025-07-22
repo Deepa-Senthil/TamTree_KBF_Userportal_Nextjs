@@ -6,14 +6,7 @@ margin-bottom: 1rem;
 @media (max-width: 600px) {
   padding: 0 30px;
 }
-
-    .container {
-        // max-width: 1000px;
-        // margin: 0 auto;
-        // padding: 0 10px;
-      }
-      
-    .title {
+   .title {
       text-align: center;
       font-weight: bold;
       color: $button-color;
@@ -30,9 +23,7 @@ margin-bottom: 1rem;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      gap: 40px;
-    //   margin-top: 40px;
-  
+      gap: 40px;  
       @media (max-width: 768px) {
         flex-direction: column;
       }

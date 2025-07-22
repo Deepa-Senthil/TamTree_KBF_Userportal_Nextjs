@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import styles from "../../styles/Reviews.module.scss";
 import { useGetReviews } from "@/hooks/Hooks";
+import Head from "next/head";
 
 type ReviewData = {
   id: number;
@@ -88,6 +89,14 @@ const ReviewCards = () => {
   );
 
   return (
+    <>
+    <Head>
+      <title>Customer Reviews | Kathir Baby Foods</title>
+      <meta
+        name="description"
+        content="Read what our happy customers have to say about our delicious food and excellent service at Sindhus Kitchen."
+      />
+    </Head>
     <div className={styles.container}>
       <h2 className={styles.title}>Customer Reviews</h2>
 
@@ -102,7 +111,8 @@ const ReviewCards = () => {
 
       {/* Bottom Pagination */}
       {totalPages > 1 && renderPagination()}
-    </div>
+      </div>
+      </>
   );
 };
 

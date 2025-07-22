@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useGetProducts } from "@/hooks/Hooks";
 import styles from "@/styles/ProductList.module.scss";
 import CommonProductCard from "@/component/CommonProductCard";
+import Head from "next/head";
 
 export default function ProductList() {
   const { data: products } = useGetProducts();
@@ -37,41 +38,51 @@ export default function ProductList() {
   };
 
   return (
-    <div className={styles.wrapper}>
-      {/* Header */}
-      <div className={styles.header}>
-        <button
-          className={styles.backButton}
-          onClick={() => router.push("/ourcatalog")}
-        >
-          ←
-        </button>
-        <h2 className={styles.title}>All Products</h2>
-      </div>
-
-      {/* Grid */}
-      <div className={styles.grid}>
-        {paginatedProducts.map((product) => (
-          <div className={styles.gridItem} key={product.id}>
-            <CommonProductCard product={product} />
-          </div>
-        ))}
-      </div>
-
-      {/* Pagination */}
-      <div className={styles.pagination}>
-        {[...Array(totalPages)].map((_, idx) => (
+    <>
+      <Head>
+        <title>All Products | Sindhus Kitchen</title>
+        <meta
+          name="description"
+          content="Browse our full catalog of delicious snacks and meals. Discover your next favorite dish at Sindhus Kitchen."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <div className={styles.wrapper}>
+        {/* Header */}
+        <div className={styles.header}>
           <button
-            key={idx}
-            className={`${styles.pageButton} ${
-              page === idx + 1 ? styles.active : ""
-            }`}
-            onClick={() => handlePageChange(idx + 1)}
+            className={styles.backButton}
+            onClick={() => router.push("/ourcatalog")}
           >
-            {idx + 1}
+            ←
           </button>
-        ))}
+          <h2 className={styles.title}>All Products</h2>
+        </div>
+
+        {/* Grid */}
+        <div className={styles.grid}>
+          {paginatedProducts.map((product) => (
+            <div className={styles.gridItem} key={product.id}>
+              <CommonProductCard product={product} />
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination */}
+        <div className={styles.pagination}>
+          {[...Array(totalPages)].map((_, idx) => (
+            <button
+              key={idx}
+              className={`${styles.pageButton} ${
+                page === idx + 1 ? styles.active : ""
+              }`}
+              onClick={() => handlePageChange(idx + 1)}
+            >
+              {idx + 1}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

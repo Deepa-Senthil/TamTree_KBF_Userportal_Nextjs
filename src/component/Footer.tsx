@@ -9,10 +9,10 @@ const Footer = () => {
   const router = useRouter();
 
   const shopItems = [
-    { label: "For Babies", path: "/featuredcategories" },
-    { label: "For Toddlers", path: "/featuredcategories" },
-    { label: "For Moms", path: "/featuredcategories" },
-    { label: "Herbal Products", path: "/featuredcategories" },
+    { label: "For Babies", path: "/ourcatalog" },
+    { label: "For Toddlers", path: "/ourcatalog" },
+    { label: "For Moms", path: "/ourcatalog" },
+    { label: "Herbal Products", path: "/ourcatalog" },
   ];
 
   const handleNavigation = (path: string) => {

@@ -1,88 +1,87 @@
-@use './variables' as *;
+@use "./variables" as *;
 
 .container {
-    padding: 16px;
-  }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    // margin-bottom: 6px;
-  }
-  
-  .backBtn {
-    background: $button-color;
-    border-radius: 100%;
-    color: white;
-    padding: 12px 12px;
-    margin-right: 12px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .title {
-    color:$button-color;
-    font-family: 'a-alley-garden', cursive;
-    font-size: 2.5rem;
-    font-weight: 700;
-display: flex; 
-justify-content: center;
-text-align: center;}
-  
-  .grid {
-    display: grid;
-    gap: 12px;
-  
-    grid-template-columns: repeat(2, 1fr);
-  
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
-  }
-  
-  
-  .pagination {
-    display: flex;
-    justify-content: flex-end;
-    // margin: 16px 0;
-    gap: 8px;
-  }
-  
-  .pageBtn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    color: $secondary-color;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    font-size: 0.6rem;
-    transition: all 0.3s ease;
-    margin: 0.25rem;
+  padding: 16px;
+}
 
-    &:hover {
-      background-color: blue;
-      border-color: blue;
-      color: white;
-    }
+.header {
+  display: flex;
+  align-items: center;
+  // margin-bottom: 6px;
+}
+
+.backBtn {
+  background: $button-color;
+  border-radius: 100%;
+  color: white;
+  padding: 12px 12px;
+  margin-right: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  color: $button-color;
+  font-family: "a-alley-garden", cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
   }
-  
-  .pageBtn.active {
-    background-color: $button-color;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  // margin: 16px 0;
+  gap: 8px;
+}
+
+.pageBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: $secondary-color;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 0.6rem;
+  transition: all 0.3s ease;
+  margin: 0.25rem;
+
+  &:hover {
+    background-color: blue;
+    border-color: blue;
+    color: white;
+  }
+}
+
+.pageBtn.active {
+  background-color: $button-color;
   color: white;
   border-color: $button-color;
   font-weight: bold;
-  }
-  
-  .loading,
-  .error,
-  .empty {
-    text-align: center;
-    margin: 40px 0;
-    font-size: 1.1rem;
-  }
-  
+}
+
+.loading,
+.error,
+.empty {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 1.1rem;
+}
