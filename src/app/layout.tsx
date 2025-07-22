@@ -3,6 +3,8 @@ import LayoutClient from "@/component/LayoutClient";
 import "../styles/global.scss";
 import type { Metadata } from "next";
 import Loader from "@/component/Loader";
+import ScrollToTop from "@/component/ScrollToTop";
+import WhatsAppButton from "@/component/WhatsApp";
 
 export const metadata: Metadata = {
   title: "Kathir Baby Foods",
@@ -17,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Loader/>
+        <Loader />
+        <ScrollToTop />
+        <WhatsAppButton/>
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
