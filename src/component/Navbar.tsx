@@ -36,7 +36,12 @@ export default function Navbar({ onCartClick }: { onCartClick: () => void }) {
         <div className={styles.top}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
-              <img src="/asset/images/kbf-logo.jpg" alt="Kathir Baby Foods" />
+              <img
+                src="/asset/images/KathirBabyFoodslogo.svg"
+                alt="Kathir Baby Foods"
+                width={120}
+                height={120}
+              />
             </Link>
             <div className={styles.brandText}>
               <div className={styles.title}>Kathir Baby Foods</div>

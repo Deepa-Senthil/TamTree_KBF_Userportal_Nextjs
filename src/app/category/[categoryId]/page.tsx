@@ -81,7 +81,7 @@ export default function CategoryPage() {
           >
             ←
           </button>
-          <h2 className={styles.title}>{productsData.categoryName}</h2>
+          <h1 className={styles.title}>{productsData.categoryName}</h1>
         </div>
 
         {/* {totalPages > 1 && (

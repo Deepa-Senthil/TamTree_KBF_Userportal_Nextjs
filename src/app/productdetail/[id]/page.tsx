@@ -163,7 +163,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             </div>
 
             <div className={styles.productInfoOverlay}>
-              <h2 className={styles.productTitle}>{product.title}</h2>
+              <h1 className={styles.productTitle}>{product.title}</h1>
 
               {product.sizeWithPrice?.length ? (
                 <div className={styles.productControls}>

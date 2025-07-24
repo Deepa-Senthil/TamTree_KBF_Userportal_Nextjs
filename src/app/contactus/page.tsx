@@ -22,12 +22,17 @@ const ContactUs = () => {
         />
       </Head>
       <div className={styles.contactContainer}>
-        <h2 className={styles.title}>Contact Us - Kathir Baby Foods</h2>
+        <h1 className={styles.title}>Contact Us - Kathir Baby Foods</h1>
 
         <div className={styles.gridContainer}>
           {/* Left Image */}
           <div className={styles.imageContainer}>
-            <img src="/asset/images/contactus-banner.jpg" alt="Contact Us" />
+            <img
+              src="/asset/images/contactus-banner.webp"
+              alt="Contact Us"
+              width="1200"
+              height="400"
+            />
           </div>
 
           {/* Right Contact Details */}

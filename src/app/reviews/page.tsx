@@ -98,7 +98,7 @@ const ReviewCards = () => {
       />
     </Head>
     <div className={styles.container}>
-      <h2 className={styles.title}>Customer Reviews</h2>
+      <h1 className={styles.title}>Customer Reviews</h1>
 
       {/* Top Pagination */}
       {/* {totalPages > 1 && renderPagination()} */}

@@ -46,7 +46,7 @@ export default function ProductList() {
         >
           ←
         </button>
-        <h2 className={styles.title}>All Products</h2>
+        <h1 className={styles.title}>All Products</h1>
       </div>
 
       {/* Grid */}

@@ -15,12 +15,17 @@ const AboutUs = () => {
       </Head>
       <div className={styles.container}>
         <div className={styles.aboutUsContainer}>
-          <h2 className={styles.title}>About Kathir Baby Foods</h2>
+          <h1 className={styles.title}>About Kathir Baby Foods</h1>
 
           <div className={styles.contentWrapper}>
             {/* Left Side - Image */}
             <div className={styles.imageWrapper}>
-              <img src="/asset/images/aboutus-banner.jpg" alt="AboutUs" />
+              <img
+                src="/asset/images/aboutus-banner.webp"
+                alt="AboutUs"
+                width="1000"
+                height="400"
+              />
             </div>
 
             {/* Right Side - Text */}

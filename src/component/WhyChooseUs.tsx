@@ -46,7 +46,7 @@ const WhyChooseUs = () => {
   return (
     <section className={styles.whySection}>
       <div className={styles.innerContainer}>
-        <h2 className={styles.title}>Why to Choose Us?</h2>
+        <h1 className={styles.title}>Why to Choose Us?</h1>
 
         <div className={styles.grid}>
           {data.map((item, index) => (

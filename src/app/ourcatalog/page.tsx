@@ -40,7 +40,7 @@ const FeaturedCategories = () => {
         />
       </Head>
       <div className={styles.wrapper}>
-        <h2 className={styles.title}>Our Featured Categories</h2>
+        <h1 className={styles.title}>Our Featured Categories</h1>
 
         <div className={styles.categoryGrid}>
           {/* ALL category */}

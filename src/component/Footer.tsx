@@ -25,15 +25,15 @@ const Footer = () => {
       <div className={styles.footerContainer}>
         {/* Brand Logo and FSSAI */}
         <div className={styles.footerSection}>
-          <h5 className={styles.footerHeading}>Kathir Baby Foods</h5>
+          <h6 className={styles.footerHeading}>Kathir Baby Foods</h6>
           <div className={styles.logoContainer}>
             <div className={styles.logoWrapper}>
               <Link href="/contactus" scroll={true}>
                 <Image
-                  src="/asset/images/kbf-logo.jpg"
+                  src="/asset/images/KathirBabyFoodslogo.svg"
                   alt="Kathir Baby Foods Logo"
-                  width={100}
-                  height={100}
+                  width={120}
+                  height={120}
                   className={styles.logoImage}
                 />
               </Link>
