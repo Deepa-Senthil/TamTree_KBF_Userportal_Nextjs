@@ -42,6 +42,8 @@ export interface IProductType {
   howToStore: string;
   description: string;
   category: string;
+  shortDescription?: string; // Add this
+  keywords?: string[];
 }
   
   
@@ -107,6 +109,40 @@ const fetchProductDetailById = async (productId: string) => {
     throw error;
   }
 };
+
+export const fetchProductDetailMeta = async (productId: string) => {
+  try {
+    const res = await fetch(
+      `http://localhost:3001/product/fetchProductByID/${productId}`,
+      {
+        method: "GET",
+        cache: "no-store", // prevent caching for dynamic data
+      }
+    );
+
+    if (!res.ok) {
+      console.error("❌ Failed to fetch:", res.statusText);
+      return null;
+    }
+
+    const product: IProductType = await res.json();
+
+    return {
+      title: product.title,
+      description: product.description,
+      shortDescription: product.shortDescription,
+      keywords: product.keywords,
+      imageUrl: product.imageUrl,
+    };
+  } catch (error: any) {
+    console.error(
+      "❌ Error fetching product metadata:",
+      error?.message || error
+    );
+    return null;
+  }
+};
+
 export const getProductsByCategory = async (
   categoryId: string
 ): Promise<ProductsByCategoryResponse> => {
